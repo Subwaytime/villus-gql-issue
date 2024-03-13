@@ -1,0 +1,42 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    // Enable latest features
+    "lib": [
+      "ESNext"
+    ],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    // Best practices
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    // Some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
+    "types": [
+      "bun-types",
+      "vite/client",
+    ],
+    "plugins": [
+      {
+        "name": "@0no-co/graphqlsp",
+        "schema": "https://beta.pokeapi.co/graphql/v1beta",
+        "tadaOutputLocation": "./graphql.d.ts"
+      }
+    ]
+  },
+  "include": [
+    "./**/*.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
